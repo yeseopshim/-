@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단일 페이지 웹사이트</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {font-family: Arial, sans-serif; margin: 0; padding: 0;}
+
+        header {background: black; color: white; padding: 1em 0;}
+
+        nav ul {list-style: none; display: flex; justify-content: center; margin: 0; padding: 0;}
+
+        nav ul li {margin: 0 1em;}
+
+        nav ul li a {color: white; text-decoration: none; cursor: pointer;}
+
+        main {padding: 2em; text-align: center;}
+
+        .profile-img {width: 150px; height: 150px; border-radius: 50%; display: block; margin: 0 auto;}
+
+        footer {background: black; color: white; text-align: center; padding: 1em 0; position: fixed; bottom: 0; width: 100%;}
+
+        .page {display: none;}
+
+        .page.active {display: block;}
+
+        
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="showPage('home')">홈</a></li>
+                <li><a href="#about" onclick="showPage('about')">자기 소개</a></li>
+                <li><a href="#contact" onclick="showPage('contact')">연락처</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="home" class="page active">
+            <h1>심예섭</h1>
+            <p>2024/05/29</p>
+        </div>
+        <div id="about" class="page">
+            <h1>자기 소개</h1>
+            <p>안녕하세요. 저는 23학번으로 입학한 2학년 심예섭입니다. 제가 속해있는 과는 컴퓨터공학과입니다.
+                저의 취미는 기타치기이고 고등학생떄부터 기타를 치기 시작해 기타를 친지 4년정도 되었습니다. 이외에도 다룰수있는 악기가 조금 있습니다.
+            피아노랑 드럼을 조금 다룰수있습니다.</p>
+        </div>
+        <div id="contact" class="page">
+            <h1>연락처</h1>
+            <p>이메일:yesunshim1125@gmail.com</p>
+            <p>전화번호: 010-1234-5678</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 나의 웹사이트</p>
+    </footer>
+    <script>
+        function showPage(pageId) {
+            var pages = document.querySelectorAll('.page');
+            pages.forEach(function(page) {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
